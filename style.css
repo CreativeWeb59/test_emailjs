@@ -7,6 +7,7 @@
 body{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 h1{
@@ -28,14 +29,12 @@ h1{
 .form-container{
     width: 50%;
     height: 100%;
-    /*-webkit-clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);
-  clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);*/
 }
 
 #contact-form{
     width: 100%;
     height: 100%;
-    padding: 50px;
+    padding: 50px 50px;
 }
 
 #contact-form div{
@@ -51,7 +50,7 @@ h1{
     color: #cccccc;
     text-align: left;
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 10px;
 }
 #contact-form div:nth-child(1):before {
@@ -70,42 +69,90 @@ h1{
 }
 #contact-form div:nth-child(4):before {
     content: '\f075';
+    top: 0;
 }
 
-
 input, textarea {
-    width: 100%;
-    padding: 10px 10px 10px 40px;
-    border-radius: 5px;
-    border: 1px solid #b2b2b2;
-    box-shadow: inset 0 1px 4px #e1e1e1;
-
-    border:none;
+    width: 70%;
+    padding: 10px 10px 10px 10px;
+    border: 0;
     border-bottom:2px solid #dddddd;
     background-color: transparent;
  }
 
+ label{
+    display: inline-block;
+    width: 22%;
+    padding-left: 30px;
+    color: #cccccc;
+    margin-right: 10px;
+ }
+
+ #message{
+    position: absolute;
+ }
 input{
     height: 40px;
 }
 
+input:focus, textarea:focus{
+    border-bottom:2px solid #01109b;
+    outline: none;
+}
+
+
+/* Voici les règles de mise en forme pour les champs invalides */
+input.invalid{
+    border-color: #900;
+    background-color: #FDD;
+  }
+  
+  input:focus.invalid {
+    outline: none;
+  }
+
+/* Voici les règles utilisées pour les messages d'erreur */
+.error {
+    width  : 100%;
+    padding: 0;
+  
+    font-size: 80%;
+    color: white;
+    background-color: #900;
+    border-radius: 0 0 5px 5px;
+  
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .error.active {
+    padding: 0.3em;
+  }
+
+  /* fin traitement des erreurs*/
+  
 textarea{
     height: 100px;
     resize: none;
 }
-input:focus, textarea:focus{
-    outline:none; 
+::placeholder{
+    font-style: italic;
 }
 
-/* active state */
-input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label {
-    top:-20px;
-    font-size:14px;
-    color:#fff;
-  }
-
 .btn{
- padding: 0;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: 1px solid #dddddd;
+    transition: 1s;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.btn:hover{
+    border: 1px solid #01109b;
+    background: #01109b;
+    color: #dddddd;
 }
 
 /* Cadre pour message d'envoi */
@@ -121,6 +168,7 @@ input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid
     width: 50%;
     height: 100%;
     position: relative;
+    padding: 50px;
 }
 
 .form-image img{
@@ -130,5 +178,9 @@ input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid
     transform: translate(-50%, -50%);
     width: 100%;
     height: auto;
-    box-shadow: inset 0 1px 4px #e1e1e1;
+    width: 80%;
+    height: auto;
 }
+
+    /*-webkit-clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);
+  clip-path: polygon(98% 17%, 100% 34%, 98% 51%, 100% 68%, 98% 84%, 100% 100%, 0 100%, 0 0, 100% 0);*/
